@@ -1,7 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Alexander\\source\\Chat_SignalR\\backend\\Chat\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|c:\\users\\alexander\\source\\simple-chat\\backend\\chat\\chat\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|solutionrelative:chat\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|c:\\users\\alexander\\source\\simple-chat\\backend\\chat\\chat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|solutionrelative:chat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|c:\\users\\alexander\\source\\simple-chat\\backend\\chat\\chat\\models\\userconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|solutionrelative:chat\\models\\userconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,6 +47,44 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserConnection.cs",
+              "DocumentMoniker": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Models\\UserConnection.cs",
+              "RelativeDocumentMoniker": "Chat\\Models\\UserConnection.cs",
+              "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Models\\UserConnection.cs",
+              "RelativeToolTip": "Chat\\Models\\UserConnection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T08:50:28.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "Chat\\Hubs\\ChatHub.cs",
+              "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "Chat\\Hubs\\ChatHub.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA4wBAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T08:47:25.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Program.cs",
+              "RelativeDocumentMoniker": "Chat\\Program.cs",
+              "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Program.cs",
+              "RelativeToolTip": "Chat\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T08:46:05.586Z",
+              "EditorCaption": ""
             }
           ]
         }

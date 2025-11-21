@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xUg4wsHRQMQ=",
+  "dgSpecHash": "3Z9ZJirLy2A=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alexander\\source\\Chat_SignalR\\backend\\Chat\\Chat\\Chat.csproj",
+  "projectFilePath": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Chat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alexander\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.8\\microsoft.aspnetcore.openapi.9.0.8.nupkg.sha512",
     "C:\\Users\\Alexander\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
