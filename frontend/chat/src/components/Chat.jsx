@@ -7,6 +7,7 @@ import { Message } from "./Message";
 
 export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 	const [message, setMessage] = useState("");
+	// <span ref={messagesEndRef} />   -  чтобы скролл был внизу
 	const messagesEndRef = useRef(null);
 
 	useEffect(() => {
@@ -29,6 +30,7 @@ export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 				{messages.map((messageInfo, index) => (
 					<Message messageInfo={messageInfo} key={index} />
 				))}
+				
 				<span ref={messagesEndRef} />
 			</div>
 			<div className="flex gap-3">
@@ -36,10 +38,10 @@ export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 					type="text"
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
-					placeholder="¬ведите сообщение"
+					placeholder="Wright down message"
 				/>
 				<Button colorScheme="blue" onClick={onSendMessage}>
-					ќтправить
+					Send
 				</Button>
 			</div>
 		</div>
