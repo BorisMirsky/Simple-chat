@@ -4,7 +4,6 @@ import { Message } from "./Message";
 
 
 
-
 export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 	const [message, setMessage] = useState("");
 	// <span ref={messagesEndRef} />   -  чтобы скролл был внизу
@@ -22,6 +21,7 @@ export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 	return (
 		<div className="w-1/2 bg-white p-8 rounded shadow-lg">
 			<div className="flex flex-row justify-between mb-5">
+				<Heading size="lg">=Chat=</Heading>
 				<Heading size="lg">{chatRoom}</Heading>
 				<CloseButton onClick={closeChat} />
 			</div>

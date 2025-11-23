@@ -17,7 +17,7 @@ export const WaitingRoom = ({ joinChat }) => {
 				onSubmit={onSubmit}
 				className="max-w-sm w-full bg-white p-8 rounded shadow-lg"
 			>
-				<Heading size="lg">Online chat</Heading>
+				<Heading size="lg">Online chat (Waiting room)</Heading>
 				<div className="mb-4">
 					<Text fontSize={"sm"}>User's name</Text>
 					<Input

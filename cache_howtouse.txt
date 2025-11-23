@@ -1,0 +1,94 @@
+Да, конечно! **Microsoft.Extensions.Caching.Distributed** можно и очень часто используют без Docker.
+
+Docker здесь вообще не является обязательным требованием. Этот пакет — это абстракция для работы с распределенным кэшем, а Docker — это платформа для контейнеризации приложений. Это две независимые вещи.
+
+### Как это работает?
+
+Пакет `Microsoft.Extensions.Caching.Distributed` предоставляет интерфейс `IDistributedCache`. Ваш код будет работать с этим интерфейсом, не зная конкретной реализации кэша. А реализацию (так называемого "провайдера") вы выбираете и настраиваете отдельно.
+
+Самые популярные провайдеры для `IDistributedCache`:
+
+1.  **Распределенный кэш в памяти (DistributedMemoryCache)**
+    *   **Что это:** Реализация, которая хранит данные в памяти процесса приложения. **Она не является truly "распределенной"** и предназначена в первую очередь для тестирования и отладки.
+    *   **Зачем:** Не требует внешних серверов. Идеально для разработки.
+    *   **Без Docker?** Да, абсолютно. Это просто работа в памяти вашего приложения.
+
+2.  **Redis**
+    *   **Что это:** Самый популярный вариант для продакшена. Redis — это высокопроизводительное хранилище структур данных в памяти.
+    *   **Зачем:** Обеспечивает настоящую распределенность, высокую скорость и надежность.
+    *   **Без Docker?** Конечно! Redis можно установить множеством способов:
+        *   **Локально на Windows/macOS/Linux:** Скачать и установить с официального сайта.
+        *   **Использовать облачный сервис:** Например, Azure Cache for Redis, AWS ElastiCache и т.д.
+        *   **Использовать Docker:** Да, Redis тоже можно запустить в контейнере, но это лишь один из вариантов, а не обязательное условие.
+
+3.  **SQL Server**
+    *   **Что это:** Хранит кэш в таблице базы данных SQL Server.
+    *   **Зачем:** Если вы уже используете SQL Server и хотите избежать развертывания еще одного сервиса (как Redis).
+    *   **Без Docker?** Да, SQL Server также можно установить локально, использовать в облаке (Azure SQL) или в Docker. Опять же, выбор за вами.
+
+### Пример настройки Redis (без Docker)
+
+1.  **Установите Redis.** Например, на Windows можно использовать [Memurai](https://www.memurai.com/) (разработан на основе Redis для Windows) или версию от Microsoft для Windows.
+2.  **Установите NuGet-пакет** в ваш проект:
+    ```bash
+    dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis
+    ```
+3.  **Зарегистрируйте сервис** в `Program.cs`:
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
+    
+    // Добавляем распределенный кэш на основе Redis
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        // Строка подключения к вашему Redis-серверу.
+        // Если он работает локально на стандартном порту:
+        options.Configuration = "localhost"; 
+        // Или так:
+        // options.Configuration = "127.0.0.1:6379";
+        
+        // Опционально: префикс для всех ключей (удобно, если на одном Redis несколько приложений)
+        options.InstanceName = "MyApp_";
+    });
+    
+    builder.Services.AddControllers();
+    var app = builder.Build();
+    ```
+4.  **Используйте** `IDistributedCache` в ваших контроллерах или сервисах:
+    ```csharp
+    public class MyController : ControllerBase
+    {
+        private readonly IDistributedCache _cache;
+    
+        public MyController(IDistributedCache cache)
+        {
+            _cache = cache;
+        }
+    
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var cachedData = await _cache.GetStringAsync("my_key");
+            if (cachedData != null)
+            {
+                return Ok(cachedData);
+            }
+    
+            // Данных в кэше нет, получаем их из другого источника (например, БД)
+            var newData = "This is fresh data";
+    
+            // Сохраняем в кэш на 5 минут
+            var options = new DistributedCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(5));
+    
+            await _cache.SetStringAsync("my_key", newData, options);
+    
+            return Ok(newData);
+        }
+    }
+    ```
+
+### Итог
+
+**Docker — это просто один из способов запуска Redis или другого сервиса-бэкенда для кэша.** Вы можете запускать эти сервисы любым удобным для вас способом: локально, в виртуальной машине, в облаке или, да, в контейнере.
+
+**Microsoft.Extensions.Caching.Distributed** отлично работает без Docker, и в большинстве случаев на этапе разработки его и используют без Docker для простоты.

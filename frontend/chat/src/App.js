@@ -23,7 +23,6 @@ const App = () => {
 		try {
 			await connection.start();
 			await connection.invoke("JoinChat", { userName, chatRoom });
-
 			setConnection(connection);
 			setChatRoom(chatRoom);
 		} catch (error) {

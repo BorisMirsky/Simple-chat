@@ -9,7 +9,7 @@ https://www.youtube.com/watch?v=x4svcLhhu9s
 
 
 - При создании страниц не было шаблона для .jsx
-  Создал как .js, потом добавил, но не это ли причина проблем (которые ниже)?
+  Создал как .js, потом добавил, не это ли причина проблем которые ниже?
 
 - Слетела кодировка, много лет такого не было:
             '?' вместо кириллицы (неверно создал .jsx ?)
@@ -25,5 +25,30 @@ because no connection became available (5000ms)
 - Last Connection Exception: 
 It was not possible to connect to the redis server(s). 
 
+Решение (?):
+ вместо IDistibutedCache взять дефолтный IMemoryCache или ConcurrentDictionary
 
-
+##################################
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5260",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:7083;http://localhost:5260",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

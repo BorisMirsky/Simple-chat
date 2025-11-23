@@ -7,7 +7,11 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     var connection = builder.Configuration.GetConnectionString("Redis");
     options.Configuration = connection;
+    //options.Configuration = "localhost";
+    //options.InstanceName = "local";
 });
+
+builder.Services.AddMemoryCache();
 
 builder.Services.AddCors(options =>
 {

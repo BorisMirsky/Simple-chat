@@ -1,11 +1,13 @@
 ﻿using System.Text.Json;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory; //.IMemoryCache
 using Chat.Models;
+
+
 
 namespace Chat.Hubs
 {
-
     public interface IChatClient
     {
         public Task ReceiveMessage(string userName, string message);
@@ -13,10 +15,10 @@ namespace Chat.Hubs
 
     public class ChatHub : Hub<IChatClient>
     {
-
         private readonly IDistributedCache _cache;
+        //private readonly IMemoryCache _cache;
 
-        public ChatHub(IDistributedCache cache)
+        public ChatHub(IDistributedCache  cache)  //IMemoryCache
         {
             _cache = cache;
         }
@@ -30,7 +32,9 @@ namespace Chat.Hubs
             // данные надо сначала сериализовать
             var stringConnection = JsonSerializer.Serialize(connection);
             // сохранение в кеш: (ключ, данные)
+            // error
             await _cache.SetStringAsync(Context.ConnectionId, stringConnection);
+            //_cache.Set(Context.ConnectionId, stringConnection);
             // оповещение что новый юзер в чате
             await Clients.
                 Group(connection.ChatRoom).
@@ -41,6 +45,8 @@ namespace Chat.Hubs
         {
             // вынимаем из кеша по ключу
             var stringConnection = await _cache.GetAsync(Context.ConnectionId);
+            //string value = "q";
+            //var stringConnection = await _cache.TryGetValue(Context.ConnectionId, out value);
 
             var connection = JsonSerializer.Deserialize<UserConnection>(stringConnection);
 
@@ -65,12 +71,10 @@ namespace Chat.Hubs
                 await _cache.RemoveAsync(Context.ConnectionId);
                 // удалить юзера из группы
                 await Groups.RemoveFromGroupAsync(Context.ConnectionId, connection.ChatRoom);
-
                 await Clients
                     .Group(connection.ChatRoom)
                     .ReceiveMessage("Admin", $"{connection.UserName} покинул чат");
             }
-
             await base.OnDisconnectedAsync(exception);
         }
 
