@@ -26,7 +26,7 @@ const App = () => {
 			setConnection(connection);
 			setChatRoom(chatRoom);
 		} catch (error) {
-			console.log(error);
+			console.log('ERROR: ', error);
 		}
 	};
 

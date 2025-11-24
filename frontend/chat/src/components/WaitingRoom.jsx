@@ -1,4 +1,4 @@
-import { Card, Button, Heading, Input, Text } from "@chakra-ui/react";
+import { Button, Heading, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 

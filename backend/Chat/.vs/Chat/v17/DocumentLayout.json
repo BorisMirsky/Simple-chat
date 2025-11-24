@@ -33,19 +33,6 @@
               "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Program.cs",
-              "RelativeDocumentMoniker": "Chat\\Program.cs",
-              "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Program.cs",
-              "RelativeToolTip": "Chat\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T16:22:12.395Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
@@ -59,13 +46,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Program.cs",
+              "RelativeDocumentMoniker": "Chat\\Program.cs",
+              "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Program.cs",
+              "RelativeToolTip": "Chat\\Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T16:22:12.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\appsettings.json",
               "RelativeDocumentMoniker": "Chat\\appsettings.json",
               "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\appsettings.json",
               "RelativeToolTip": "Chat\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-11-22T07:54:35.782Z",
               "EditorCaption": ""
@@ -78,7 +78,7 @@
               "RelativeDocumentMoniker": "Chat\\Hubs\\ChatHub.cs",
               "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Hubs\\ChatHub.cs",
               "RelativeToolTip": "Chat\\Hubs\\ChatHub.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAADwvxUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAABEwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-21T08:47:25.91Z",
               "EditorCaption": ""

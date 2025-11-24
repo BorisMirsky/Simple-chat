@@ -6,12 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     var connection = builder.Configuration.GetConnectionString("Redis");
-    options.Configuration = connection;
-    //options.Configuration = "localhost";
-    //options.InstanceName = "local";
+    options.Configuration = connection;   //"localhost"
 });
 
-builder.Services.AddMemoryCache();
+//builder.Services.AddMemoryCache();
 
 builder.Services.AddCors(options =>
 {

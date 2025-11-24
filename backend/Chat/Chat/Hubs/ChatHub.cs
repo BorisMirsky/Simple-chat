@@ -1,8 +1,9 @@
 ﻿using System.Text.Json;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Memory; //.IMemoryCache
+//using Microsoft.Extensions.Caching.Memory; //.IMemoryCache
 using Chat.Models;
+using System.Diagnostics;
 
 
 
@@ -12,13 +13,11 @@ namespace Chat.Hubs
     {
         public Task ReceiveMessage(string userName, string message);
     }
-
+    // 'Hub' is from ..signalr
     public class ChatHub : Hub<IChatClient>
     {
         private readonly IDistributedCache _cache;
-        //private readonly IMemoryCache _cache;
-
-        public ChatHub(IDistributedCache  cache)  //IMemoryCache
+        public ChatHub(IDistributedCache  cache)  
         {
             _cache = cache;
         }
@@ -27,29 +26,27 @@ namespace Chat.Hubs
         {
             // Одна группа это чат. Тут добавление юзера в чат
             await Groups.AddToGroupAsync(
-                Context.ConnectionId,           // from Hub
+                "111", //Context.ConnectionId,           // from Hub
                 connection.ChatRoom);           // from client
             // данные надо сначала сериализовать
             var stringConnection = JsonSerializer.Serialize(connection);
             // сохранение в кеш: (ключ, данные)
             // error
-            await _cache.SetStringAsync(Context.ConnectionId, stringConnection);
-            //_cache.Set(Context.ConnectionId, stringConnection);
+            await _cache.SetStringAsync("111", stringConnection);  //Context.ConnectionId,
             // оповещение что новый юзер в чате
+            Debug.WriteLine("___4___");
             await Clients.
                 Group(connection.ChatRoom).
                 ReceiveMessage("Admin", $"{connection.UserName} вошёл в чат");
         }
 
+
+
         public async Task SendMessage(string message)
         {
             // вынимаем из кеша по ключу
             var stringConnection = await _cache.GetAsync(Context.ConnectionId);
-            //string value = "q";
-            //var stringConnection = await _cache.TryGetValue(Context.ConnectionId, out value);
-
             var connection = JsonSerializer.Deserialize<UserConnection>(stringConnection);
-
             if (connection is not null)
             {
                 await Clients
