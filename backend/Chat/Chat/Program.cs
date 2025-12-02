@@ -1,15 +1,39 @@
 using Chat.Hubs;
+using Chat;
+using StackExchange.Redis;
+
+
 
 
 var builder = WebApplication.CreateBuilder(args);
 
+string host = CredentialsSettings.hostname;
+string password = CredentialsSettings.password;
+
+ConfigurationOptions conf = new ConfigurationOptions
+{
+    EndPoints = { host },
+    User = "default",
+    Password = password,
+};
+
+ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(conf);
+
+
+
+
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     var connection = builder.Configuration.GetConnectionString("Redis");
-    options.Configuration = connection;   //"localhost"
+    options.Configuration = host;  
+    options.InstanceName = "default";
 });
 
-//builder.Services.AddMemoryCache();
+builder.Services.AddMemoryCache();   // need ?
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(conf));
+
+
 
 builder.Services.AddCors(options =>
 {

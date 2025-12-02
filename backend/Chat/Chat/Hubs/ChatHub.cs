@@ -1,9 +1,9 @@
-﻿using System.Text.Json;
+﻿using Chat.Models;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Distributed;
-//using Microsoft.Extensions.Caching.Memory; //.IMemoryCache
-using Chat.Models;
+using StackExchange.Redis;
 using System.Diagnostics;
+using System.Text.Json;
 
 
 
@@ -13,28 +13,26 @@ namespace Chat.Hubs
     {
         public Task ReceiveMessage(string userName, string message);
     }
-    // 'Hub' is from ..signalr
+
     public class ChatHub : Hub<IChatClient>
     {
-        private readonly IDistributedCache _cache;
-        public ChatHub(IDistributedCache  cache)  
+        private readonly IDatabase _redis;
+        public ChatHub(IConnectionMultiplexer redis)  
         {
-            _cache = cache;
+            _redis = redis.GetDatabase();
         }
 
         public async Task JoinChat(UserConnection connection)
         {
-            // Одна группа это чат. Тут добавление юзера в чат
+            // Одна группа == один чат.
             await Groups.AddToGroupAsync(
-                "111", //Context.ConnectionId,           // from Hub
+                Context.ConnectionId,           // from Hub
                 connection.ChatRoom);           // from client
-            // данные надо сначала сериализовать
+            // данные сериализовать
             var stringConnection = JsonSerializer.Serialize(connection);
             // сохранение в кеш: (ключ, данные)
-            // error
-            await _cache.SetStringAsync("111", stringConnection);  //Context.ConnectionId,
+            await _redis.StringSetAsync(Context.ConnectionId, stringConnection, TimeSpan.FromMinutes(2));
             // оповещение что новый юзер в чате
-            Debug.WriteLine("___4___");
             await Clients.
                 Group(connection.ChatRoom).
                 ReceiveMessage("Admin", $"{connection.UserName} вошёл в чат");
@@ -45,8 +43,8 @@ namespace Chat.Hubs
         public async Task SendMessage(string message)
         {
             // вынимаем из кеша по ключу
-            var stringConnection = await _cache.GetAsync(Context.ConnectionId);
-            var connection = JsonSerializer.Deserialize<UserConnection>(stringConnection);
+            var stringConnection = await _redis.StringGetAsync(Context.ConnectionId);
+            var connection = JsonSerializer.Deserialize<UserConnection>(stringConnection!);
             if (connection is not null)
             {
                 await Clients
@@ -56,16 +54,16 @@ namespace Chat.Hubs
         }
 
         // разрыв соединения -> очистка кеша
-        // пергрузка (переопределение) базовой реализации
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
-            var stringConnection = await _cache.GetAsync(Context.ConnectionId);
-            var connection = JsonSerializer.Deserialize<UserConnection>(stringConnection);
-
+            var stringConnection = await _redis.StringGetAsync(Context.ConnectionId);
+            var connection = JsonSerializer.Deserialize<UserConnection>(stringConnection!);
             if (connection is not null)
             {
+                Debug.WriteLine(stringConnection.ToString());
+                Debug.WriteLine(connection.ToString());
                 // удалить кеш
-                await _cache.RemoveAsync(Context.ConnectionId);
+                await _redis.ListRemoveAsync(Context.ConnectionId, connection.ChatRoom);
                 // удалить юзера из группы
                 await Groups.RemoveFromGroupAsync(Context.ConnectionId, connection.ChatRoom);
                 await Clients
@@ -74,6 +72,5 @@ namespace Chat.Hubs
             }
             await base.OnDisconnectedAsync(exception);
         }
-
     }
 }
