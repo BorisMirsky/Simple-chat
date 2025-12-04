@@ -10,7 +10,7 @@ export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 	const messagesEndRef = useRef(null);
 
 	useEffect(() => {
-		messagesEndRef.current.scrollIntoView();
+		messagesEndRef.current.scrollIntoView();  
 	}, [messages]);
 
 	const onSendMessage = () => {
@@ -30,7 +30,7 @@ export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 				{messages.map((messageInfo, index) => (
 					<Message messageInfo={messageInfo} key={index} />
 				))}
-
+				
 				<span ref={messagesEndRef} />
 			</div>
 			<div className="flex gap-3">

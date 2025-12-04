@@ -4,7 +4,7 @@ import { HubConnectionBuilder } from "@microsoft/signalr";
 import { Chat } from "./components/Chat.jsx";
 
 
-
+ 
 const App = () => {
 	const [connection, setConnection] = useState(null);
 	const [messages, setMessages] = useState([]);
