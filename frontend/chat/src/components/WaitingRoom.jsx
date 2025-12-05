@@ -27,7 +27,7 @@ export const WaitingRoom = ({ joinChat }) => {
 				/>
 			</div>
 			<div className="mb-6">
-				<Text fontSize={"sm"}>Chat's name ö</Text>
+				<Text fontSize={"sm"}>Chat's name</Text>
 				<Input
 					name="chatname"
 					placeholder="input chat's name"

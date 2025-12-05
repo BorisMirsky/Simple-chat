@@ -9,10 +9,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|c:\\users\\alexander\\source\\simple-chat\\backend\\chat\\chat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|solutionrelative:chat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|c:\\users\\alexander\\source\\simple-chat\\backend\\chat\\chat\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{72979413-C05C-4875-8EEB-8ED8339A7022}|Chat\\Chat.csproj|solutionrelative:chat\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,10 +27,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
@@ -56,21 +48,10 @@
               "RelativeDocumentMoniker": "Chat\\Program.cs",
               "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Program.cs",
               "RelativeToolTip": "Chat\\Program.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAB8AAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T16:22:12.395Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\appsettings.json",
-              "RelativeDocumentMoniker": "Chat\\appsettings.json",
-              "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\appsettings.json",
-              "RelativeToolTip": "Chat\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-22T07:54:35.782Z"
+              "WhenOpened": "2025-11-23T16:22:12.395Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -80,7 +61,7 @@
               "RelativeDocumentMoniker": "Chat\\Hubs\\ChatHub.cs",
               "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Hubs\\ChatHub.cs",
               "RelativeToolTip": "Chat\\Hubs\\ChatHub.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAA1wDkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAIA8wC0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-21T08:47:25.91Z",
               "EditorCaption": ""

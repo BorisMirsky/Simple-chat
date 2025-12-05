@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -27,10 +27,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
@@ -52,7 +48,7 @@
               "RelativeDocumentMoniker": "Chat\\Program.cs",
               "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Program.cs",
               "RelativeToolTip": "Chat\\Program.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAB8AAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T16:22:12.395Z",
               "EditorCaption": ""
@@ -65,7 +61,7 @@
               "RelativeDocumentMoniker": "Chat\\Hubs\\ChatHub.cs",
               "ToolTip": "C:\\Users\\Alexander\\source\\Simple-chat\\backend\\Chat\\Chat\\Hubs\\ChatHub.cs",
               "RelativeToolTip": "Chat\\Hubs\\ChatHub.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAA1wEEAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAgwEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-21T08:47:25.91Z",
               "EditorCaption": ""

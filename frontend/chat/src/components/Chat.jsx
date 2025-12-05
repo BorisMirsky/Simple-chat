@@ -21,7 +21,7 @@ export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 	return (
 		<div className="w-1/2 bg-white p-8 rounded shadow-lg">
 			<div className="flex flex-row justify-between mb-5">
-				<Heading size="lg">=Chat=</Heading>
+				<Heading size="lg">Chat: </Heading>
 				<Heading size="lg">{chatRoom}</Heading>
 				<CloseButton onClick={closeChat} />
 			</div>
@@ -38,7 +38,7 @@ export const Chat = ({ messages, chatRoom, sendMessage, closeChat }) => {
 					type="text"
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
-					placeholder="Wright down message"
+					placeholder="message here"
 				/>
 				<Button colorScheme="blue" onClick={onSendMessage}>
 					Send

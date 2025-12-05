@@ -1,8 +1,7 @@
 ﻿using Chat.Models;
 using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Caching.Distributed;
+//using Microsoft.Extensions.Caching.Distributed;
 using StackExchange.Redis;
-using System.Diagnostics;
 using System.Text.Json;
 
 
@@ -39,7 +38,6 @@ namespace Chat.Hubs
         }
 
 
-
         public async Task SendMessage(string message)
         {
             // вынимаем из кеша по ключу
@@ -57,13 +55,11 @@ namespace Chat.Hubs
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
             var stringConnection = await _redis.StringGetAsync(Context.ConnectionId);
-            var connection = JsonSerializer.Deserialize<UserConnection>(stringConnection!);
+            var connection = JsonSerializer.Deserialize<UserConnection>(stringConnection);
             if (connection is not null)
             {
-                Debug.WriteLine(stringConnection.ToString());
-                Debug.WriteLine(connection.ToString());
                 // удалить кеш
-                await _redis.ListRemoveAsync(Context.ConnectionId, connection.ChatRoom);
+                await _redis.ListRemoveAsync(Context.ConnectionId, connection.ChatRoom, 1);
                 // удалить юзера из группы
                 await Groups.RemoveFromGroupAsync(Context.ConnectionId, connection.ChatRoom);
                 await Clients
