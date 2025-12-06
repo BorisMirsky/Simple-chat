@@ -3,7 +3,6 @@ using Chat;
 using StackExchange.Redis;
 
 
-// redis
 string host = CredentialsSettings.hostname;
 string password = CredentialsSettings.password;
 ConfigurationOptions conf = new ConfigurationOptions
@@ -12,17 +11,16 @@ ConfigurationOptions conf = new ConfigurationOptions
     User = "default",
     Password = password,
 };
-ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(conf);
+//ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(conf);
 
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddStackExchangeRedisCache(options =>
 {
-    //var connection = builder.Configuration.GetConnectionString("Redis");
     options.Configuration = host;  
     options.InstanceName = "default";
 });
-builder.Services.AddMemoryCache();   // need ?
+
 builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(conf));
 builder.Services.AddCors(options =>
 {

@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\chat",
-    "\\chat\\src"
+    "\\chat\\src",
+    "\\chat\\src\\components"
   ],
-  "SelectedNode": "\\chat\\src\\index.js",
   "PreviewInSolutionExplorer": false
 }

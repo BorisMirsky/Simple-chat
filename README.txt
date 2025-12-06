@@ -1,6 +1,8 @@
 
 1) Бекенд 
    Доделать: ошибка при разрыве соединения 
+   RedisServerException: 'WRONGTYPE Operation against a key holding the wrong kind of value'
+      ...await _redis.ListRemoveAsync
 
 
 2) Фронтенд
